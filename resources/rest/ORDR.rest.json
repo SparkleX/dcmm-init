@@ -1,0 +1,8 @@
+{
+    "serviceName":"ORDR",
+    "methods": {
+        "get": {
+            "/ORDR/hello":"hello"
+        }
+    }
+}

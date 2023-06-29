@@ -1,0 +1,9 @@
+{
+    "serviceName":"CARD",
+    "methods": {
+        "get": {
+            "/data/:id" : "get",
+            "/hello":"hello"
+        }
+    }
+}

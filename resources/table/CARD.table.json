@@ -1,0 +1,19 @@
+{
+    "fields": {
+        "NodeID":{
+            "type": "uuid"
+        },
+        "CardCode":{
+            "type": "string",
+            "size": 48
+        },
+        "Balance": {
+            "type": "decimal"
+        },
+        "Active": {
+            "type": "string",
+            "size": 1,
+            "codes": "YesNo"
+        }
+    }
+}
