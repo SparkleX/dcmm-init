@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node dist/Install",
     "build": "tsc",
-    "link": "npm link dcmm-schema metal-dialect"
+    "link": "npm link dcmm-schema metal-dialect db-conn-mysql"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/SparkleX/dcmm-init#readme",
   "dependencies": {
+    "dotenv": "^16.3.1",
     "glob": "^10.3.1",
     "jsonfile": "^6.1.0"
   },
