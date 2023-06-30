@@ -1,4 +1,5 @@
 {
+    "name": "ORDR",
     "fields": {
         "NodeID":{
             "type": "uuid"
