@@ -13,7 +13,6 @@ class DbCreator {
         for (const file of files) {
             const table = jsonfile.readFileSync(file) as Table;
             rt.push(table);
-            console.debug(table);
         }
         return rt;
         
