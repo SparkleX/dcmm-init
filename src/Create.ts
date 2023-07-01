@@ -38,6 +38,7 @@ class DbCreator {
     }
     public async createDatabase(name: string, sqls: string[]) {
         const oConfig = JSON.parse(process.env.DB_CONFIG);
+        oConfig.database = name;
        const oDriver = new MySqlDriver();
        process.env.DB_CONFIG
        const conn = await oDriver.connect(oConfig);
