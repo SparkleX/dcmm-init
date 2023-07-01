@@ -4,11 +4,11 @@
   "description": "",
   "type": "module",
   "bin": {
-    "dcmm-db-install": "node dist/Install"
+    "dcmm-db-create": "dist/Create.js"
   },
   "main": "index.js",
   "scripts": {
-    "start": "node dist/Install",
+    "start": "node dist/Create",
     "build": "tsc",
     "link": "npm link dcmm-schema metal-dialect db-conn-mysql"
   },
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/SparkleX/dcmm-init#readme",
   "dependencies": {
+    "commander": "^11.0.0",
     "dotenv": "^16.3.1",
     "glob": "^10.3.1",
     "jsonfile": "^6.1.0"

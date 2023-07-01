@@ -1,10 +1,14 @@
 #!/usr/local/bin/node
+
 import { glob } from "glob";
 import jsonfile from "jsonfile";
 import { Table } from "dcmm-schema";
 import { MySqlDialect  } from "metal-dialect";
 import { MySqlDriver } from "db-conn-mysql";
+
 import dotenv from "dotenv";
+import { Command } from "commander"
+
 class DbCreator {
     
     public scanTables():Table[] {
@@ -26,11 +30,11 @@ class DbCreator {
         }
         return rt;
     }
-    public async run() {
+    public async run(dbName: string) {
         dotenv.config();
         const tables = this.scanTables();
         const sqls = this.createDdls(tables);
-        await this.createDatabase("test", sqls);
+        await this.createDatabase(dbName, sqls);
     }
     public async createDatabase(name: string, sqls: string[]) {
         const oConfig = JSON.parse(process.env.DB_CONFIG);
@@ -45,5 +49,23 @@ class DbCreator {
     }
 }
 
-const oCreator = new DbCreator();
-oCreator.run();
+
+
+
+
+const program = new Command();
+
+program
+  .name("dcmm-init")
+  .description("dcmm database install tools")
+  .version("1.0.0");
+
+program
+  .description("create database")
+  .argument("<dbName>", "database / schema name")
+  .action((dbName) => {
+    const oCreator = new DbCreator();
+    oCreator.run(dbName);
+  });
+
+program.parse();
